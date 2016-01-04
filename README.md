@@ -48,7 +48,24 @@ Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de v
 <P>Aangezien de focus ligt op het maken van de shadow functionaliteit en deze ook de ingewikkeldste is, wordt dit opgedeeld in meerdere deel problemen:</P>
 
 <ul>
+	<li>Hoe wordt de kaart geimplementeerd zodat deze makkelijk te gebruiken is?</li>
 	<li>Wat zijn de bewandelbare paden?</li>
+	<li>Hoe leest de app die paden af?</li>
 	<li>Hoe bewerkt de app de kaart?</li>
 	<li>Hoe visualiseer je de mogelijke verplaatsing?</li>
+	<li>Hoe lees je de coordinaten van een scherm aanraking af?</li>
 </ul>
+
+<H1>Activities</H1>
+
+<P>Met de huidige kennis lijkt het logisch om een openingsscherm met een listview te hebben. Hier kan vervolgens gekozen worden uit een van de speelbare kaarten/levels. Vervolgens beland je in het informatie scherm, waar zich grofweg alle functies bevinden. Eventueel zou er nog een settings activity bijkomen voor bijvoorbeeld het tweaken van de kleur van de visualisatie. De bomb plant functie zou heel simpel en compact op het informatie scherm geplaats worden. De eco calculator zou eventueel een eigen activity kunnen krijgen wanneer er wordt gekozen voor veel user input. Mocht er voor een simpele versie gekozen worden dan voldoet een kleine rand in het scherm. (zie foto)</P>
+
+<H1>Potential problems</H1>
+
+<P>Het verversen van de kaart zou vertraging kunnen krijgen waardoor de informatie niet accuraat is. Ook zou eventueel teweinig/teveel tijd een probleem kunnen zijn, doordat het inschatten van het werklast moeilijk is. Verder zou het telang door gaan met een verkeerde methode om de kaart te bewerken/uit te lezen een tijd probleem kunnen opleveren. Hiervoor is goed contact met de begeleider nodig tijdens het project.</P>
+
+<H1>Vergelijkbare visualisaties / Apps</H1>
+
+<P>Een vergelijkbare app lijkt nog niet te bestaan. Er zijn uiteraard veel apps die de kaarten inbeeld kunnen brengen en informatie over het spel bieden, maar een tool als de shadow-functie moet worden, heb ik afgelopen weken niet kunnen vinden. De visualisatie moet een lijken op dat van de search/pathfind algoritmes waarbij de shadow pixel voor pixel zijn weg verder zoekt.</P>
+
+![Figure 1-3](http://imgur.com/yUTS6Id)
