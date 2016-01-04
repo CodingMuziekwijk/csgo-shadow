@@ -32,7 +32,7 @@ Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de v
 
 <P>De uitrusting die je gebruikt tijdens een ronden moet je kopen. Dit kost uiteraard in-game geld en ditzelfde geld verdien je door rondes te winnen en kills te maken. Soms is het handig om als team een ronde niks te kopen, zodat je de ronde erna genoeg hebt om een degelijke uitrusting te betalen. Dit wordt: “Eco” genoemd. Wanneer je van tevoren weet dat een tegenstander een eco ronde neemt kan dit veel voordelen bieden. De calculator zou een voorspelling moeten doen op basis van simpele input.</P>
 
-<H1>data sets and data sources</H1>
+<H1>Data sets and data sources</H1>
 
 <P>Voor het maken van de app, is de volgende informatie nodig:</P>
 <ul>
