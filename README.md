@@ -68,4 +68,4 @@ Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de v
 
 <P>Een vergelijkbare app lijkt nog niet te bestaan. Er zijn uiteraard veel apps die de kaarten inbeeld kunnen brengen en informatie over het spel bieden, maar een tool als de shadow-functie moet worden, heb ik afgelopen weken niet kunnen vinden. De visualisatie moet een lijken op dat van de search/pathfind algoritmes waarbij de shadow pixel voor pixel zijn weg verder zoekt.</P>
 
-![Figure 1-3](http://imgur.com/yUTS6Id)
+![Figure 1-3](http://i.imgur.com/yUTS6Id.png)
