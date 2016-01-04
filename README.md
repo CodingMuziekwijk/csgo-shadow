@@ -1,7 +1,5 @@
 # csgo-shadow 
 
-<H1>Introductie</H2>
-
 <P>Counter Strike Global Offensive (CS:GO) is een computerspel gemaakt door Valve. Dit spel heeft 10 miljoen unieke maandelijkse gebruikers en wordt beschouwd als de meest competitieve shooter. </P>
 
 <P>Een potje wordt gespeeld door twee teams (Terroristen en de Counter-Terroristen) van vijf spelers en is gewonnen zodra een team 16 rondes (van 2 a 3 min) gewonnen heeft. Hierbij heeft elke speler één enkel leven. Als terrorist win je een ronden door een bom af te laten gaan op een specifieke locatie. Als counter-terrorist win je logischerwijs door dit te voorkomen. </P>
