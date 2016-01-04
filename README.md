@@ -30,3 +30,25 @@ Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de v
 
 <P>De uitrusting die je gebruikt tijdens een ronden moet je kopen. Dit kost uiteraard in-game geld en ditzelfde geld verdien je door rondes te winnen en kills te maken. Soms is het handig om als team een ronde niks te kopen, zodat je de ronde erna genoeg hebt om een degelijke uitrusting te betalen. Dit wordt: “Eco” genoemd. Wanneer je van tevoren weet dat een tegenstander een eco ronde neemt kan dit veel voordelen bieden. De calculator zou een voorspelling moeten doen op basis van simpele input.</P>
 
+<H1>data sets and data sources</H1>
+
+<P>Voor het maken van de app, is de volgende informatie nodig:</P>
+<ul>
+	<li>Plattegronden</li>
+	<li>Spel variabelen</li>
+</ul>
+
+<h2>Plattegronden</h2>
+<P>De plattegronden zijn op verschillende fora te vinden in verschillende grote en vormgeving. Deze fora zullen hiervoor geraapleegd worden.</P>
+
+<h2>Spel variabelen</h2>
+<P>Een aantal variabelen zijn bekend onder de spelers van het spel. Het moeilijkste variabel zal de snelheid worden. Hoewel er bekend is dat iemand die met een mes in ze hand loopt het snelst beweegt en deze waard 210 is in het spel. Is het nog een kleine kunst om dit te vertalen naar een plattegrond. Om dit juist te bepalen zal er onder andere meet proef in het spel gedaan worden.</P>
+
+<H1>Decomposing the problem</H1>
+<P>Aangezien de focus ligt op het maken van de shadow functionaliteit en deze ook de ingewikkeldste is, wordt dit opgedeeld in meerdere deel problemen:</P>
+
+<ul>
+	<li>Wat zijn de bewandelbare paden?</li>
+	<li>Hoe bewerkt de app de kaart?</li>
+	<li>Hoe visualiseer je de mogelijke verplaatsing?</li>
+</ul>
