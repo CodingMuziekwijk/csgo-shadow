@@ -21,6 +21,8 @@
 <P>Dit is de belangrijkste functie (welke overigens naar mijn weten niet bestaat). Hierbij krijg je op je mobiel / tablet een plattegrond van de omgeving te zien. Wanneer er vijand gedetecteerd word, klik je op deze positie op de kaart. Hierna ontstaat er een soort “virus” vanaf die plek die zich over de kaart verspreid. Dit virus is een visualisatie van de maximaal mogelijke afstand die de speler afgelegd kan hebben. 
 Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de vijand in ze rug komt of toch bij dat andere kamertje terecht is gekomen. </P>
 
+![Figure 1-1](http://i.imgur.com/tusRdlz.jpg)
+
 <H2>Detonatie timer (optioneel)</H2>
 
 <P>Een bom ontploft 45 seconden nadat deze is geactiveerd. 10 seconden daarvoor moet je maken dat je weg bent en het kost 5 of 10 seconden om een bom onschadelijk te maken. De timer zou met een druk op de knop geactiveerd moeten worden, waarna deze afhankelijk van je team relevante informatie moet printen op het scherm (eventueel geluiden).</P>
@@ -59,6 +61,8 @@ Hierdoor kun je vrij nauwkeurig zien of een speler al zorgen moet maken dat de v
 <H1>Activities</H1>
 
 <P>Met de huidige kennis lijkt het logisch om een openingsscherm met een listview te hebben. Hier kan vervolgens gekozen worden uit een van de speelbare kaarten/levels. Vervolgens beland je in het informatie scherm, waar zich grofweg alle functies bevinden. Eventueel zou er nog een settings activity bijkomen voor bijvoorbeeld het tweaken van de kleur van de visualisatie. De bomb plant functie zou heel simpel en compact op het informatie scherm geplaats worden. De eco calculator zou eventueel een eigen activity kunnen krijgen wanneer er wordt gekozen voor veel user input. Mocht er voor een simpele versie gekozen worden dan voldoet een kleine rand in het scherm. (zie foto)</P>
+
+![Figure 1-2](http://i.imgur.com/alfA7uO.png)
 
 <H1>Potential problems</H1>
 
