@@ -1,5 +1,6 @@
 package com.evilcorp.csgo_shadow;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,14 @@ public class Openingscreen extends AppCompatActivity {
         myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon));
         myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon));
         myMaps.add(new gameMap("Cache", R.drawable.cache_icon));
+        myMaps.add(new gameMap("Aztec", R.drawable.aztec_icon));
+        myMaps.add(new gameMap("Dust", R.drawable.dust_icon));
+        myMaps.add(new gameMap("Vertigo", R.drawable.vertigo_icon));
+        myMaps.add(new gameMap("Nuke", R.drawable.nuke_icon));
+        myMaps.add(new gameMap("Office", R.drawable.office_icon));
+        myMaps.add(new gameMap("Italy", R.drawable.italy_icon));
+        myMaps.add(new gameMap("Assault", R.drawable.assault_icon));
+        myMaps.add(new gameMap("Militia", R.drawable.militia_icon));
     }
 
     private void populateListView() {        ArrayAdapter<gameMap> adapter = new MyListAdapter();
@@ -72,7 +81,6 @@ public class Openingscreen extends AppCompatActivity {
             TextView makeText = (TextView) itemView.findViewById(R.id.item_txt_make);
             makeText.setText(currentGameMap.getName());
 
-
             return itemView;
         }
     }
@@ -86,6 +94,7 @@ public class Openingscreen extends AppCompatActivity {
                 gameMap clickedGameMap = myMaps.get(position);
                 String message = "" + clickedGameMap.getName();
                 Toast.makeText(Openingscreen.this, message, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Openingscreen.this, Faction.class));
             }
         });
     }
