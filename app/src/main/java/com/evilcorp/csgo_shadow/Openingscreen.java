@@ -35,21 +35,21 @@ public class Openingscreen extends AppCompatActivity {
     }
 
     private void populateMapList() {
-        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon));
-        myMaps.add(new gameMap("Train", R.drawable.train_icon));
-        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon));
-        myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon));
-        myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon));
-        myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon));
-        myMaps.add(new gameMap("Cache", R.drawable.cache_icon));
-        myMaps.add(new gameMap("Aztec", R.drawable.aztec_icon));
-        myMaps.add(new gameMap("Dust", R.drawable.dust_icon));
-        myMaps.add(new gameMap("Vertigo", R.drawable.vertigo_icon));
-        myMaps.add(new gameMap("Nuke", R.drawable.nuke_icon));
-        myMaps.add(new gameMap("Office", R.drawable.office_icon));
-        myMaps.add(new gameMap("Italy", R.drawable.italy_icon));
-        myMaps.add(new gameMap("Assault", R.drawable.assault_icon));
-        myMaps.add(new gameMap("Militia", R.drawable.militia_icon));
+        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2));
+        myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train));
+        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage));
+        myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon, R.drawable.overview_inferno));
+        myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon, R.drawable.overview_cobblestone));
+        myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon, R.drawable.overview_overpass));
+        myMaps.add(new gameMap("Cache", R.drawable.cache_icon, R.drawable.overview_cache));
+        myMaps.add(new gameMap("Aztec", R.drawable.aztec_icon, R.drawable.overview_aztec));
+        myMaps.add(new gameMap("Dust", R.drawable.dust_icon, R.drawable.overview_dust));
+        myMaps.add(new gameMap("Vertigo", R.drawable.vertigo_icon, R.drawable.overview_vertigo));
+        myMaps.add(new gameMap("Nuke", R.drawable.nuke_icon, R.drawable.overview_nuke));
+        myMaps.add(new gameMap("Office", R.drawable.office_icon, R.drawable.overview_office));
+        myMaps.add(new gameMap("Italy", R.drawable.italy_icon, R.drawable.overview_italy));
+        myMaps.add(new gameMap("Assault", R.drawable.assault_icon, R.drawable.overview_assault));
+        myMaps.add(new gameMap("Militia", R.drawable.militia_icon, R.drawable.overview_militia));
     }
 
     private void populateListView() {        ArrayAdapter<gameMap> adapter = new MyListAdapter();
@@ -94,7 +94,11 @@ public class Openingscreen extends AppCompatActivity {
                 gameMap clickedGameMap = myMaps.get(position);
                 String message = "" + clickedGameMap.getName();
                 Toast.makeText(Openingscreen.this, message, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Openingscreen.this, Faction.class));
+
+                Intent intent = new Intent(Openingscreen.this, Faction.class);
+                intent.putExtra("myMapId", myMaps.get(position).getOverViewID() );
+
+                startActivity(intent);
             }
         });
     }

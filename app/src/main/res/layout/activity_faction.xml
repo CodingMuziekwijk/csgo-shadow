@@ -23,7 +23,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/counter_imageView"
         android:src="@drawable/ct_icon"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
@@ -32,9 +32,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:id="@+id/terror_imageView"
         android:src="@drawable/terror_icon"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/counterTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
 
@@ -55,8 +55,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Counter-terrorists"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/counterTextView"
+        android:layout_below="@+id/counter_imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textColor="#99CCFF"/>
@@ -66,8 +66,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Terrorists"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/imageView2"
+        android:id="@+id/terrorTextView"
+        android:layout_below="@+id/terror_imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textColor="#C0A334"/>
