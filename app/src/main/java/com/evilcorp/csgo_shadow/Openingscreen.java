@@ -35,23 +35,24 @@ public class Openingscreen extends AppCompatActivity {
     }
 
     private void populateMapList() {
-        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel));
-        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.dust2_testmap));
-        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2));
-        myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train));
-        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage));
-        myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon, R.drawable.overview_inferno));
-        myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon, R.drawable.overview_cobblestone));
-        myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon, R.drawable.overview_overpass));
-        myMaps.add(new gameMap("Cache", R.drawable.cache_icon, R.drawable.overview_cache));
-        myMaps.add(new gameMap("Aztec", R.drawable.aztec_icon, R.drawable.overview_aztec));
-        myMaps.add(new gameMap("Dust", R.drawable.dust_icon, R.drawable.overview_dust));
-        myMaps.add(new gameMap("Vertigo", R.drawable.vertigo_icon, R.drawable.overview_vertigo));
-        myMaps.add(new gameMap("Nuke", R.drawable.nuke_icon, R.drawable.overview_nuke));
-        myMaps.add(new gameMap("Office", R.drawable.office_icon, R.drawable.overview_office));
-        myMaps.add(new gameMap("Italy", R.drawable.italy_icon, R.drawable.overview_italy));
-        myMaps.add(new gameMap("Assault", R.drawable.assault_icon, R.drawable.overview_assault));
-        myMaps.add(new gameMap("Militia", R.drawable.militia_icon, R.drawable.overview_militia));
+        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.dust2_testmap, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Crossover", R.drawable.oefenlevel_icon, R.drawable.testlevel_crossover_overview, R.drawable.testlevel_crossover_overview));
+        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon, R.drawable.overview_inferno, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon, R.drawable.overview_cobblestone, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon, R.drawable.overview_overpass, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Cache", R.drawable.cache_icon, R.drawable.overview_cache, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Aztec", R.drawable.aztec_icon, R.drawable.overview_aztec, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Dust", R.drawable.dust_icon, R.drawable.overview_dust, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Vertigo", R.drawable.vertigo_icon, R.drawable.overview_vertigo, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Nuke", R.drawable.nuke_icon, R.drawable.overview_nuke, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Office", R.drawable.office_icon, R.drawable.overview_office, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Italy", R.drawable.italy_icon, R.drawable.overview_italy, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Assault", R.drawable.assault_icon, R.drawable.overview_assault, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Militia", R.drawable.militia_icon, R.drawable.overview_militia, R.drawable.dust2_testmap));
     }
 
     private void populateListView() {        ArrayAdapter<gameMap> adapter = new MyListAdapter();
@@ -99,6 +100,7 @@ public class Openingscreen extends AppCompatActivity {
 
                 Intent intent = new Intent(Openingscreen.this, Faction.class);
                 intent.putExtra("myMapId", myMaps.get(position).getOverViewID() );
+                intent.putExtra("myShadowMapId", myMaps.get(position).getShadowOverViewID() );
 
                 startActivity(intent);
             }

@@ -8,6 +8,7 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
 
     private Bundle bundle;
     private int myMapId;
+    private int myShadowMapId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +17,9 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
 
         bundle = getIntent().getExtras();
         myMapId = bundle.getInt("myMapId");
+        myShadowMapId = bundle.getInt("myShadowMapId");
         setMapOverview(myMapId);
+        setShadowBitmap(myShadowMapId);
     }
 
 
@@ -24,5 +27,15 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
     public void setMapOverview(int myMapId) {
         ShadowFragment shadowFragment = (ShadowFragment) getSupportFragmentManager().findFragmentById(R.id.shadow_fragment);
         shadowFragment.setMapOverview(myMapId);
+
+
+    }
+
+    @Override
+    public void setShadowBitmap(int myShadowMapId) {
+        ShadowFragment shadowFragment = (ShadowFragment) getSupportFragmentManager().findFragmentById(R.id.shadow_fragment);
+        shadowFragment.setShadowBitMap(myShadowMapId);
+
+
     }
 }

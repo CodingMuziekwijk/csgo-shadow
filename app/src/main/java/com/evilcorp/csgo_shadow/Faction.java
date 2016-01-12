@@ -13,6 +13,7 @@ public class Faction extends AppCompatActivity {
 
     private Bundle bundle;
     private int myMapId;
+    private int myShadowMapId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class Faction extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
         myMapId = bundle.getInt("myMapId");
+        myShadowMapId = bundle.getInt("myShadowMapId");
 
         onTerrorClick();
         onCounterClick();
@@ -37,7 +39,7 @@ public class Faction extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId );
-
+                intent.putExtra("myShadowMapId", myShadowMapId);
                 startActivity(intent);
             }
         });
@@ -47,6 +49,7 @@ public class Faction extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
+                intent.putExtra("myShadowMapId", myShadowMapId);
                 startActivity(intent);
             }
         });
@@ -61,6 +64,7 @@ public class Faction extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
+                intent.putExtra("myShadowMapId", myShadowMapId);
                 startActivity(intent);
             }
         });
@@ -70,6 +74,7 @@ public class Faction extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
+                intent.putExtra("myShadowMapId", myShadowMapId);
                 startActivity(intent);
             }
         });
