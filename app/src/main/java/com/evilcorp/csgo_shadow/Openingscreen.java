@@ -35,6 +35,8 @@ public class Openingscreen extends AppCompatActivity {
     }
 
     private void populateMapList() {
+        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel));
+        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2));
         myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train));
         myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage));

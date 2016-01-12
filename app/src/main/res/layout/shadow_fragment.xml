@@ -14,7 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:textSize="80sp"
+        android:textColor="#ff0000"
+        android:text=""
         android:id="@+id/testTextView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
