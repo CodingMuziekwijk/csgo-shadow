@@ -2,11 +2,8 @@ package com.evilcorp.csgo_shadow;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,18 +11,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 public class ShadowFragment extends Fragment {
 
@@ -196,7 +188,7 @@ public class ShadowFragment extends Fragment {
 
 
                     int initialDelay = 0; // start after 30 seconds
-                    int period = 27;        // repeat every 5 seconds
+                    int period = 70;        // repeat every 5 seconds
 
                     createTimerTask();
                     timer.scheduleAtFixedRate(task, initialDelay, period);
