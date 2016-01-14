@@ -43,7 +43,7 @@ public class ShadowFragment extends Fragment {
     private TimerTask task;
     ArrayList<Integer> cords_xx;
     ArrayList<Integer> cords_yy;
-    private Boolean checker;
+
 
 
     ShadowFragmentListener activityCommander;
@@ -82,6 +82,7 @@ public class ShadowFragment extends Fragment {
 
         createOnTouchListener();
         createResetButton(view);
+
 
 
 
@@ -127,10 +128,7 @@ public class ShadowFragment extends Fragment {
     }
 
     public boolean whiteInMap(){
-        if(cords_x.size() == 0){
-            return true;
-        }
-        return false;
+        return(cords_x.size() == 0);
     }
 
 
@@ -162,24 +160,24 @@ public class ShadowFragment extends Fragment {
                     cords_x.add((int) motionEvent.getX());
                     cords_y.add((int) motionEvent.getY());
 
-                    if(bitmap == null){
+                    if (bitmap == null) {
                         bitmap = mapOverview.getDrawingCache();
                     }
 
 
-                    if(myBitMapIdBackup == null){
+                    if (myBitMapIdBackup == null) {
                         myBitMapIdBackup = bitmap.copy(bitmap.getConfig(), true);
                     }
 
                     //myBitMapIdBackup = mapOverview.getDrawingCache();
 
 
-                    if(shadowMap == null){
+                    if (shadowMap == null) {
                         shadowMap = shadowMapOverview.getDrawingCache();
                     }
 
 
-                    if(myShadowMapIdBackup == null){
+                    if (myShadowMapIdBackup == null) {
                         myShadowMapIdBackup = shadowMap.copy(shadowMap.getConfig(), true);
                     }
                     //myShadowMapIdBackup = shadowMapOverview.getDrawingCache();
@@ -223,7 +221,6 @@ public class ShadowFragment extends Fragment {
         task = new TimerTask() {
             public void run() {
                 //Irative timer code :
-                checker = false;
 
                 cords_xx = new ArrayList<>(cords_x);
                 cords_yy = new ArrayList<>(cords_y);
@@ -240,13 +237,57 @@ public class ShadowFragment extends Fragment {
 
 
                 for (int i = 0; i < cords_xx.size(); i++) {
+                    //setStep(cords_xx.get(i), cords_yy.get(i));
+                    createCircle(cords_xx.get(i), cords_yy.get(i));
+//-------------------------------------------------------------------------------------------------------
+//                    pixel = shadowMap.getPixel(cords_xx.get(i), cords_yy.get(i));
+//
+//                    int neighbour_pixel = shadowMap.getPixel(cords_xx.get(i) - 1, cords_yy.get(i));
+//                    //checkPixel(neighbour_pixel);
+//                    if(neighbour_pixel == Color.WHITE) {
+//                        //Log.i("System.out", "Neighbour = White!");
+//                        bitmap.setPixel(cords_xx.get(i) - 1, cords_yy.get(i), Color.GREEN);
+//                        shadowMap.setPixel(cords_xx.get(i) - 1, cords_yy.get(i), Color.GREEN);
+//                        cords_x.add(cords_xx.get(i) - 1);
+//                        cords_y.add(cords_yy.get(i));
+//                    }
+//                    neighbour_pixel = shadowMap.getPixel(cords_xx.get(i)+ 1, cords_yy.get(i));
+//                    //checkPixel(neighbour_pixel);
+//                    if(neighbour_pixel == Color.WHITE) {
+//                        //Log.i("System.out", "Neighbour = White!");
+//                        bitmap.setPixel(cords_xx.get(i) + 1, cords_yy.get(i), Color.GREEN);
+//                        shadowMap.setPixel(cords_xx.get(i) + 1, cords_yy.get(i), Color.GREEN);
+//                        cords_x.add(cords_xx.get(i) + 1);
+//                        cords_y.add(cords_yy.get(i));
+//                    }
+//                    neighbour_pixel = shadowMap.getPixel(cords_xx.get(i), cords_yy.get(i) - 1);
+//                    //checkPixel(neighbour_pixel);
+//                    if(neighbour_pixel == Color.WHITE) {
+//                        //Log.i("System.out", "Neighbour = White!");
+//                        bitmap.setPixel(cords_xx.get(i), cords_yy.get(i) - 1, Color.GREEN);
+//                        shadowMap.setPixel(cords_xx.get(i), cords_yy.get(i) - 1, Color.GREEN);
+//                        cords_x.add(cords_xx.get(i));
+//                        cords_y.add(cords_yy.get(i) - 1);
+//                    }
+//
+//                    neighbour_pixel = shadowMap.getPixel(cords_xx.get(i), cords_yy.get(i) + 1);
+//                    //checkPixel(neighbour_pixel);
+//                    if(neighbour_pixel == Color.WHITE) {
+//                        //Log.i("System.out", "Neighbour = White!");
+//                        bitmap.setPixel(cords_xx.get(i), cords_yy.get(i) + 1, Color.GREEN);
+//                        shadowMap.setPixel(cords_xx.get(i), cords_yy.get(i) + 1, Color.GREEN);
+//                        cords_x.add(cords_xx.get(i));
+//                        cords_y.add(cords_yy.get(i) + 1);
+//                    }
 
+
+//------------------------------------------------------------------------------------------------------------
                     // Iterate though all neighbours
-                    for (int j = 0; j < 3; j++) {
-                        for (int k = 0; k < 3; k++) {
-
-                            int neighbour_pixel = shadowMap.getPixel(cords_xx.get(i) + j - 1, cords_yy.get(i) + k - 1);
-                            pixel = shadowMap.getPixel(cords_xx.get(i) + j, cords_yy.get(i) + k);
+//                    for (int j = 0; j < 3; j++) {
+//                        for (int k = 0; k < 3; k++) {
+//
+//                            int neighbour_pixel = shadowMap.getPixel(cords_xx.get(i) + j - 1, cords_yy.get(i) + k - 1);
+//                            pixel = shadowMap.getPixel(cords_xx.get(i) + j, cords_yy.get(i) + k);
 //                            if(pixel == Color.RED){
 //                                Log.i("System.out", "pixel = Red!");
 //                                if (neighbour_pixel == Color.WHITE) {
@@ -270,28 +311,299 @@ public class ShadowFragment extends Fragment {
 //                                }
 //
 //                            }
-
-                            if(neighbour_pixel == Color.WHITE) {
-                                //Log.i("System.out", "Neighbour = White!");
-                                bitmap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
-                                shadowMap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
-                                cords_x.add(cords_xx.get(i) - 1 + j);
-                                cords_y.add(cords_yy.get(i) - 1 + k);
-                            }
-
-                            if(Color.red(neighbour_pixel) == 255){
-                                //Log.i("System.out", "Neighbour = Red!");
-                                bitmap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
-                                shadowMap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
-                                cords_x.add(cords_xx.get(i) - 1 + j);
-                                cords_y.add(cords_yy.get(i) - 1 + k);
-                            }
-                        }
-                    }
+//
+//                            if(neighbour_pixel == Color.WHITE) {
+//                                //Log.i("System.out", "Neighbour = White!");
+//                                bitmap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//                                shadowMap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//                                cords_x.add(cords_xx.get(i) - 1 + j);
+//                                cords_y.add(cords_yy.get(i) - 1 + k);
+//                            }
+//
+//                            if(Color.red(neighbour_pixel) == 255){
+//                                //Log.i("System.out", "Neighbour = Red!");
+//                                bitmap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//                                shadowMap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//                                cords_x.add(cords_xx.get(i) - 1 + j);
+//                                cords_y.add(cords_yy.get(i) - 1 + k);
+//                            }
+//                        }
+//                    }
                 }
                 updateMapOverview();
-                checker = true;
             }
         };
+    }
+
+//    private void checkPixel(int pixel, int i){
+//        if(pixel == Color.WHITE) {
+//            //Log.i("System.out", "Neighbour = White!");
+//            bitmap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//            shadowMap.setPixel(cords_xx.get(i) - 1 + j, cords_yy.get(i) - 1 + k, Color.GREEN);
+//            cords_x.add(cords_xx.get(i) - 1 + j);
+//            cords_y.add(cords_yy.get(i) - 1 + k);
+//        }
+//    }
+
+    private void setStep( int x, int y) {
+
+        // First Row Pixels
+        for(int i = 1; i < 5; i++ ){
+            if(isWhite(x + i, y )){
+                bitmap.setPixel( x + i, y, Color.GREEN);
+                shadowMap.setPixel( x + i, y, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y);
+            }
+            if(isWhite(x - i, y )){
+                bitmap.setPixel( x - i, y, Color.GREEN);
+                shadowMap.setPixel( x - i, y, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y);
+            }
+        }
+        // Second Row Pixels
+        // Upper
+        for(int i = 1; i < 5; i++ ){
+            if(isWhite(x + i, y + 1 )){
+                bitmap.setPixel( x + i, y + 1, Color.GREEN);
+                shadowMap.setPixel( x + i, y + 1, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y + 1);
+            }
+            if(isWhite(x - i, y + 1 )){
+                bitmap.setPixel( x - i, y + 1, Color.GREEN);
+                shadowMap.setPixel( x - i, y + 1, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y + 1);
+            }
+
+        }
+        // Lower
+        for(int i = 1; i < 5; i++ ){
+            if(isWhite(x + i, y - 1 )){
+                bitmap.setPixel( x + i, y - 1, Color.GREEN);
+                shadowMap.setPixel( x + i, y - 1, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y - 1);
+            }
+            if(isWhite(x - i, y - 1 )){
+                bitmap.setPixel( x - i, y - 1, Color.GREEN);
+                shadowMap.setPixel( x - i, y - 1, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y - 1);
+            }
+
+        }
+
+        // Third Row Pixels
+        // Upper
+        for(int i = 1; i < 4; i++ ){
+            if(isWhite(x + i, y + 2 )){
+                bitmap.setPixel( x + i, y + 2, Color.GREEN);
+                shadowMap.setPixel( x + i, y + 2, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y + 1);
+            }
+            if(isWhite(x - i, y + 2 )){
+                bitmap.setPixel( x - i, y + 2, Color.GREEN);
+                shadowMap.setPixel( x - i, y + 2, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y + 2);
+            }
+
+        }
+        // Lower
+        for(int i = 1; i < 4; i++ ){
+            if(isWhite(x + i, y - 2 )){
+                bitmap.setPixel( x + i, y - 2, Color.GREEN);
+                shadowMap.setPixel( x + i, y - 2, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y - 2);
+            }
+            if(isWhite(x - i, y - 2 )){
+                bitmap.setPixel( x - i, y - 2, Color.GREEN);
+                shadowMap.setPixel( x - i, y - 2, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y - 2);
+            }
+
+        }
+
+        // Fourth Row Pixels
+        // Upper
+        for(int i = 1; i < 4; i++ ){
+            if(isWhite(x + i, y + 3 )){
+                bitmap.setPixel( x + i, y + 3, Color.GREEN);
+                shadowMap.setPixel( x + i, y + 3, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y + 3);
+            }
+            if(isWhite(x - i, y + 3 )){
+                bitmap.setPixel( x - i, y + 3, Color.GREEN);
+                shadowMap.setPixel( x - i, y + 3, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y + 3);
+            }
+
+        }
+        // Lower
+        for(int i = 1; i < 4; i++ ){
+            if(isWhite(x + i, y - 3 )){
+                bitmap.setPixel( x + i, y - 3, Color.GREEN);
+                shadowMap.setPixel( x + i, y - 3, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y - 3);
+            }
+            if(isWhite(x - i, y - 3 )){
+                bitmap.setPixel( x - i, y - 3, Color.GREEN);
+                shadowMap.setPixel( x - i, y - 3, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y - 3);
+            }
+
+        }
+
+        // Fifth Row Pixels
+        // Upper
+        for(int i = 1; i < 2; i++ ){
+            if(isWhite(x + i, y + 4 )){
+                bitmap.setPixel( x + i, y + 4, Color.GREEN);
+                shadowMap.setPixel( x + i, y + 4, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y + 4);
+            }
+            if(isWhite(x - i, y + 4 )){
+                bitmap.setPixel( x - i, y + 4, Color.GREEN);
+                shadowMap.setPixel( x - i, y + 4, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y + 4);
+            }
+
+        }
+        // Lower
+        for(int i = 1; i < 2; i++ ){
+            if(isWhite(x + i, y - 4 )){
+                bitmap.setPixel( x + i, y - 4, Color.GREEN);
+                shadowMap.setPixel( x + i, y - 4, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y - 4);
+            }
+            if(isWhite(x - i, y - 4 )){
+                bitmap.setPixel( x - i, y - 4, Color.GREEN);
+                shadowMap.setPixel( x - i, y - 4, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y - 4);
+            }
+
+        }
+
+
+    }
+
+    private Boolean isWhite(int x, int y){
+        return (shadowMap.getPixel(x, y) == Color.WHITE);
+    }
+
+    private void circle(int x, int y){
+        for(int i = 1; i < 5; i++ ){
+            if(isWhite(x + i, y )){
+                bitmap.setPixel( x + i, y, Color.GREEN);
+                shadowMap.setPixel( x + i, y, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y);
+            }
+            if(isWhite(x - i, y )){
+                bitmap.setPixel( x - i, y, Color.GREEN);
+                shadowMap.setPixel( x - i, y, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y);
+            }
+        }
+
+        // Second Row Pixels
+        // Upper
+        for(int i = 1; i < 5; i++ ){
+            if(isWhite(x + i, y + 1 )){
+                bitmap.setPixel( x + i, y + 1, Color.GREEN);
+                shadowMap.setPixel( x + i, y + 1, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y + 1);
+            }
+            if(isWhite(x - i, y + 1 )){
+                bitmap.setPixel( x - i, y + 1, Color.GREEN);
+                shadowMap.setPixel( x - i, y + 1, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y + 1);
+            }
+            // Lower
+            if(isWhite(x + i, y - 1 )){
+                bitmap.setPixel( x + i, y - 1, Color.GREEN);
+                shadowMap.setPixel( x + i, y - 1, Color.GREEN);
+                cords_x.add(x + i);
+                cords_y.add(y - 1);
+            }
+            if(isWhite(x - i, y - 1 )){
+                bitmap.setPixel( x - i, y - 1, Color.GREEN);
+                shadowMap.setPixel( x - i, y - 1, Color.GREEN);
+                cords_x.add(x - i);
+                cords_y.add(y - 1);
+            }
+
+        }
+    }
+
+
+    private void createCircle(int x, int y){
+//        checkPixel(x, y, 0, 4);
+//        checkPixel(x, y, 1, 4);
+//        checkPixel(x, y, 2, 3);
+//        checkPixel(x, y, 3, 3);
+//        checkPixel(x, y, 4, 1);
+        checkPixel(x, y, 0, 8);
+        checkPixel(x, y, 1, 8);
+        checkPixel(x, y, 2, 8);
+        checkPixel(x, y, 3, 7);
+        checkPixel(x, y, 5, 6);
+        checkPixel(x, y, 6, 6);
+        checkPixel(x, y, 7, 4);
+    }
+
+    private void addPixel(int x, int y, boolean add){
+        bitmap.setPixel(x, y, Color.GREEN);
+        shadowMap.setPixel(x, y, Color.GREEN);
+        if(add){
+            cords_x.add(x);
+            cords_y.add(y);
+        }
+    }
+
+    private void checkPixel(int x, int y, int d, int j){
+        for(int i = 1; i < j + 1; i++) {
+            boolean outer = false;
+        if ((i == j) & (d == 3 || d == 5 || d == 0) ){
+                outer = true;
+            }
+            // Bottom right
+            if (isWhite(x + i, y + d)) {
+                addPixel(x + i, y + d, outer);
+            }
+
+            // Bottom left
+            if (isWhite(x - d, y + i)) {
+                addPixel(x - d, y + i, outer);
+            }
+
+            // top left
+            if (isWhite(x - i, y - d)) {
+                addPixel(x - i, y - d, outer);
+            }
+
+            // top right
+            if (isWhite(x + d, y - i)) {
+                addPixel(x + d, y - i, outer);
+            }
+        }
+
     }
 }

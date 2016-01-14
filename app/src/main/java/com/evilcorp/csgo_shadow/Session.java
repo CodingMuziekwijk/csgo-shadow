@@ -4,11 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Session extends AppCompatActivity implements ShadowFragment.ShadowFragmentListener {
 
     private Bundle bundle;
     private int myMapId;
     private int myShadowMapId;
+
+    final Timer timer = new Timer();
+    private TimerTask task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,7 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
         setMapOverview(myMapId);
         setShadowBitmap(myShadowMapId);
     }
+
 
 
     @Override
@@ -38,4 +45,5 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
 
 
     }
+
 }
