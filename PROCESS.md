@@ -83,9 +83,8 @@
   <li>None.</li>
 </ul>
 
-#Day 5
 
-#Day 4
+#Day 5
 
 <h4>Goals:</h4>
 <ul>
@@ -97,6 +96,59 @@
 <ul>
   <li>De navigatie door de schermen werken krijgen</li>
   <li>werken aan design.md</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 6
+
+<h4>Goals:</h4>
+<ul>
+  <li>Het shadow-fragment maken</li>
+  <li>Starten aan de shadow-functie</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Het shadow-fragment maken</li>
+  <li>Starten aan de shadow-functie</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 7
+
+<h4>Goals:</h4>
+<ul>
+  <li>Nieuwe versie van shadowfunctie maken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Nieuwe versie van shadowfunctie maken</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 8
+
+<h4>Goals:</h4>
+<ul>
+  <li>Eco fragment en Bombtimer fragment maken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Nieuwe versie van shadowfunctie maken</li>
 </ul>
 
 <h4>Left:</h4>
