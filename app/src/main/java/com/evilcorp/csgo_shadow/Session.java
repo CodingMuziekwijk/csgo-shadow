@@ -7,14 +7,13 @@ import android.widget.Toast;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Session extends AppCompatActivity implements ShadowFragment.ShadowFragmentListener {
+public class Session extends AppCompatActivity implements ShadowFragment.ShadowFragmentListener, BombTimerFragment.BombTimerFragmentListener, EcoFragment.EcoFragmentListener {
 
     private Bundle bundle;
     private int myMapId;
     private int myShadowMapId;
+    private boolean startFactionIsTerror;
 
-    final Timer timer = new Timer();
-    private TimerTask task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +23,11 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
         bundle = getIntent().getExtras();
         myMapId = bundle.getInt("myMapId");
         myShadowMapId = bundle.getInt("myShadowMapId");
+        startFactionIsTerror = bundle.getBoolean("myFaction");
         setMapOverview(myMapId);
         setShadowBitmap(myShadowMapId);
+        //Toast.makeText(Session.this, "" + startFactionIsTerror, Toast.LENGTH_SHORT).show();
+        setFaction(startFactionIsTerror);
     }
 
 
@@ -44,6 +46,12 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
         shadowFragment.setShadowBitMap(myShadowMapId);
 
 
+    }
+
+    @Override
+    public void setFaction(boolean startFactionIsTerror) {
+        EcoFragment ecoFragment = (EcoFragment) getSupportFragmentManager().findFragmentById(R.id.eco_fragment);
+        ecoFragment.setFaction(startFactionIsTerror);
     }
 
 }

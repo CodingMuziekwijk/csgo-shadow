@@ -20,7 +20,6 @@ public class Shadow {
     ArrayList<Integer> xListContainer = new ArrayList<>();
     ArrayList<Integer> yListContainer = new ArrayList<>();
 
-
     public Shadow(Bitmap shadowMap, Bitmap bitmap) {
         this.shadowMap = shadowMap;
         this.bitmap = bitmap;
@@ -91,125 +90,147 @@ public class Shadow {
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
+            }else if (isYellow(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.YELLOW);
+                //bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.YELLOW);
+                addCordsToList(x, y, outer);
             }else if (isRed(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.RED);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.RED);
                 addCordsToList(x, y, outer);
             }else if (isBlue(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.BLUE);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.BLUE);
                 addCordsToList(x, y, outer);
             }else if (isGreen(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GREEN);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GREEN);
                 addCordsToList(x, y, outer);
             }else if (isMagenta(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.MAGENTA);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.MAGENTA);
                 addCordsToList(x, y, outer);
+            }else if (isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                //bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
             }
-        }else if(isRed(ownColor)){
-           // Log.d("test", Color.alpha(shadowMap.getPixel(x, y))+ " " +  Color.green(shadowMap.getPixel(x, y)) + " " + Color.red(shadowMap.getPixel(x, y)) + " " + Color.blue(shadowMap.getPixel(x, y)));
-            if(isRed(color)){
+        }else if(isYellow(ownColor)){
+            if(isYellow(color)){
+                return;
+            }else if(isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                //bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
+            }
+        }else if(isRed(ownColor)) {
+            if(isRed(color) || isYellow(color)){
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.RED);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.RED);
                 addCordsToList(x, y, outer);
             }else if (isGreen(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
+            }else if (isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }else if(isBlue(ownColor)){
-            // Log.d("test", Color.alpha(shadowMap.getPixel(x, y))+ " " +  Color.green(shadowMap.getPixel(x, y)) + " " + Color.red(shadowMap.getPixel(x, y)) + " " + Color.blue(shadowMap.getPixel(x, y)));
-            if(isBlue(color)){
+            if(isBlue(color) || isYellow(color)){
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.BLUE);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.BLUE);
                 addCordsToList(x, y, outer);
             }else if (isMagenta(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
+            }else if (isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }else if(isGreen(ownColor)){
-            // Log.d("test", Color.alpha(shadowMap.getPixel(x, y))+ " " +  Color.green(shadowMap.getPixel(x, y)) + " " + Color.red(shadowMap.getPixel(x, y)) + " " + Color.blue(shadowMap.getPixel(x, y)));
-            if(isGreen(color)){
+            if(isGreen(color) || isYellow(color)){
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+               //bitmap.setPixel(x, y, Color.GREEN);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GREEN);
                 addCordsToList(x, y, outer);
             }else if (isRed(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
+            }else if (isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }else if(isMagenta(ownColor)){
             // Log.d("test", Color.alpha(shadowMap.getPixel(x, y))+ " " +  Color.green(shadowMap.getPixel(x, y)) + " " + Color.red(shadowMap.getPixel(x, y)) + " " + Color.blue(shadowMap.getPixel(x, y)));
-            if(isMagenta(color)){
+            if(isMagenta(color) || isYellow(color)){
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.MAGENTA);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.MAGENTA);
                 addCordsToList(x, y, outer);
             }else if (isBlue(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
+                bitmap.setPixel(x, y, new_pixel);
+                shadowMap.setPixel(x, y, Color.GRAY);
+                addCordsToList(x, y, outer);
+            }else if (isCyan(color)){
+                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
+                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }
-
-/*        if(isGreen(xLocalOrigin, yLocalOrigin)){
-            if(isWhite(x, y)){
-                int pixel = bitmap.getPixel(x, y);
-                int new_pixel = makeNewPixel(pixel);
-                bitmap.setPixel(x, y, new_pixel);
-                shadowMap.setPixel(x, y, Color.GREEN);
-                addCordsToList(x, y, outer);
-            }
-
-            if (isRed(x, y)){
-                int pixel = bitmap.getPixel(x, y);
-                int new_pixel = makeNewPixel(pixel);
-                bitmap.setPixel(x, y, new_pixel);
-                shadowMap.setPixel(x, y, Color.RED);
-                addCordsToList(x, y, outer);
-            }
-        } else if (isRed(xLocalOrigin, yLocalOrigin)){
-            if(isWhite(x, y)){
-                int pixel = bitmap.getPixel(x, y);
-                int new_pixel = makeNewPixel(pixel);
-                bitmap.setPixel(x, y, Color.RED); // new_pixel
-                shadowMap.setPixel(x, y, Color.RED);
-                addCordsToList(x, y, outer);
-            }
-            if(isMagenta(x, y)){
-                int pixel = bitmap.getPixel(x, y);
-                int new_pixel = makeNewPixel(pixel);
-                bitmap.setPixel(x, y, Color.GREEN); // new_pixel
-                shadowMap.setPixel(x, y, Color.GREEN);
-                addCordsToList(x, y, outer);
-            }
-        }*/
-
     }
 
     public boolean whiteInMap(){
@@ -221,6 +242,8 @@ public class Shadow {
 
         if ((Color.red(pixel) > 250) && (Color.green(pixel) > 250) && (Color.blue(pixel) > 250)){
             return Color.WHITE;
+        }else if (pixel == Color.GRAY){
+            return Color.GRAY;
         }else if((Color.red(pixel) > 250) && (Color.green(pixel) < 50) && (Color.blue(pixel) < 50)){
             return Color.RED;
         }else if((Color.red(pixel) > 250) && (Color.green(pixel) < 50) && (Color.blue(pixel) > 250)) {
@@ -229,8 +252,10 @@ public class Shadow {
             return Color.GREEN;
         }else if ((Color.red(pixel) < 50) && (Color.green(pixel) < 50) && (Color.blue(pixel) > 250)){
             return Color.BLUE;
-        }else if (pixel == Color.GRAY){
-            return Color.GRAY;
+        }else if ((Color.red(pixel) > 250) && (Color.green(pixel) > 250) && (Color.blue(pixel) < 50)){
+            return Color.YELLOW;
+        }else if ((Color.red(pixel) < 50) && (Color.green(pixel) > 250) && (Color.blue(pixel) > 250)){
+            return Color.CYAN;
         }
         return Color.BLACK;
     }
@@ -259,6 +284,17 @@ public class Shadow {
         return Color.GRAY == color;
     }
 
+    private Boolean isYellow(int color){
+        return Color.YELLOW == color;
+    }
+
+    private Boolean isCyan(int color){
+        return Color.CYAN == color;
+    }
+
+    private Boolean isDkgray(int color){
+        return Color.DKGRAY == color;
+    }
     public void clearCordList(){
         xList.clear();
         yList.clear();

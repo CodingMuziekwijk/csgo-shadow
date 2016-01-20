@@ -5,22 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Openingscreen extends AppCompatActivity {
-
-    //String[] maps = {"Dust 2", "Mirage", "Inferno", "Cobblestone", "Overpass", "Cache", "Aztec", "Dust", "Vertigo", "Nuke", "Office", "Italy", "Assault", "Militia"  };
 
     private List<gameMap> myMaps = new ArrayList<gameMap>();
 
@@ -35,10 +30,12 @@ public class Openingscreen extends AppCompatActivity {
     }
 
     private void populateMapList() {
-        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel, R.drawable.dust2_testmap));
-        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.dust2_testmap, R.drawable.dust2_testmap));
-        myMaps.add(new gameMap("Crossover", R.drawable.oefenlevel_icon, R.drawable.testlevel_crossover_overview, R.drawable.testlevel_crossover_overview));
-        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Wall Jump", R.drawable.oefenlevel_icon, R.drawable.test_level_walljump, R.drawable.test_level_walljump));
+        myMaps.add(new gameMap("Blanco", R.drawable.oefenlevel_icon, R.drawable.blanco_level, R.drawable.blanco_level));
+        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel, R.drawable.oefenlevel));
+        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.overview_dust2_testmap02, R.drawable.overview_dust2_testmap02));
+        myMaps.add(new gameMap("Crossover", R.drawable.oefenlevel_icon, R.drawable.testlevel_crossover_overview05, R.drawable.testlevel_crossover_overview05));
+        myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2_black, R.drawable.overview_dust2_testmap02));
         myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon, R.drawable.overview_inferno, R.drawable.dust2_testmap));

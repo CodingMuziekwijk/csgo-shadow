@@ -1,8 +1,5 @@
 package com.evilcorp.csgo_shadow;
 
-/**
- * Created by Mark on 06/01/2016.
- */
 public class gameMap {
 
     private String name;
@@ -15,7 +12,6 @@ public class gameMap {
         this.iconID = iconID;
         this.overViewID = overViewID;
         this.shadowOverViewID = shadowOverViewID;
-
     }
 
     public String getName() {

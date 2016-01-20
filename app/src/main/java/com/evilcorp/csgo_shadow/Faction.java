@@ -14,6 +14,7 @@ public class Faction extends AppCompatActivity {
     private Bundle bundle;
     private int myMapId;
     private int myShadowMapId;
+    private boolean startFactionIsTerror;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +38,11 @@ public class Faction extends AppCompatActivity {
         terrorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startFactionIsTerror = true;
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId );
                 intent.putExtra("myShadowMapId", myShadowMapId);
+                intent.putExtra("myFaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });
@@ -47,9 +50,11 @@ public class Faction extends AppCompatActivity {
         terrorTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startFactionIsTerror = true;
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
                 intent.putExtra("myShadowMapId", myShadowMapId);
+                intent.putExtra("myFaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });
@@ -62,9 +67,11 @@ public class Faction extends AppCompatActivity {
         counterImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startFactionIsTerror = false;
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
                 intent.putExtra("myShadowMapId", myShadowMapId);
+                intent.putExtra("myfaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });
@@ -72,9 +79,11 @@ public class Faction extends AppCompatActivity {
         counterTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startFactionIsTerror = false;
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
                 intent.putExtra("myShadowMapId", myShadowMapId);
+                intent.putExtra("myfaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });
