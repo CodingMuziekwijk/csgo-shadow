@@ -148,7 +148,46 @@
 
 <h4>Done:</h4>
 <ul>
-  <li>Nieuwe versie van shadowfunctie maken</li>
+  <li>Eco fragment en Bombtimer fragment gemaakt en verwerkt in de session activity</li>
+  <li>Simpele timer gemaakt met display</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 9
+
+<h4>Goals:</h4>
+<ul>
+  <li>Werken aan shadow fragment en shadow class maken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Werken aan shadow fragment en shadow class gemaakt</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>shadowclass volledig verwerken in de fragments</li>
+</ul>
+
+#Day 10
+
+<h4>Goals:</h4>
+<ul>
+  <li>code opschonen</li>
+  <li>presentatie geven</li>
+  <li>shadow class implementeren</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>code opschonen</li>
+  <li>presentatie geven</li>
+  <li>shadow class implementeren</li>
 </ul>
 
 <h4>Left:</h4>
