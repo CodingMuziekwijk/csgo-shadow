@@ -35,6 +35,7 @@ public class ShadowFragment extends Fragment {
     private TimerTask task;
     private Button resetButton;
     private Shadow shadow;
+    private boolean timerOn= false;
 
     private int mapId;
     private int shadowMapId;
@@ -81,6 +82,12 @@ public class ShadowFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        resetShadow();
+        super.onDestroy();
+    }
+
     public void setMapOverview(int myMapId){
         mapOverview.setImageResource(myMapId);
         this.mapId = myMapId;
@@ -123,18 +130,16 @@ public class ShadowFragment extends Fragment {
 
     public void resetShadow(){
         //timer.cancel();
-        task.cancel();
-        shadow.clearCordList();
-        shadow.clearCordListContainer();
-
-//        bitmap = BitmapFactory.decodeResource(getResources(), mapId).copy(Bitmap.Config.ARGB_8888, true);
-//        shadowMap = BitmapFactory.decodeResource(getResources(), shadowMapId).copy(Bitmap.Config.ARGB_8888, true);
-
-
-        shadowMap = myShadowMapIdBackup.copy(myShadowMapIdBackup.getConfig(), true);
-        bitmap = myBitMapIdBackup.copy(myBitMapIdBackup.getConfig(), true);
-        createOnTouchListener();
-        clearTextViewOverview();
+        if(timerOn){
+            task.cancel();
+            timerOn = false;
+            shadow.clearCordList();
+            shadow.clearCordListContainer();
+            shadowMap = myShadowMapIdBackup.copy(myShadowMapIdBackup.getConfig(), true);
+            bitmap = myBitMapIdBackup.copy(myBitMapIdBackup.getConfig(), true);
+            createOnTouchListener();
+            clearTextViewOverview();
+        }
     }
 
     public void createOnTouchListener(){
@@ -147,9 +152,6 @@ public class ShadowFragment extends Fragment {
                 showResetButton();
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
-
-//                    bitmap = BitmapFactory.decodeResource(getResources(), mapId).copy(Bitmap.Config.ARGB_8888, true);
-//                    shadowMap = BitmapFactory.decodeResource(getResources(), shadowMapId).copy(Bitmap.Config.ARGB_8888, true);
 
                     if (bitmap == null) {
                         bitmap = mapOverview.getDrawingCache();
@@ -183,8 +185,10 @@ public class ShadowFragment extends Fragment {
                     int initialDelay = 0; // start after 30 seconds
                     int period = 65;        // repeat every 5 seconds
 
+                    timerOn = true;
                     createTimerTask();
                     timer.scheduleAtFixedRate(task, initialDelay, period);
+
                 }
                 return true;
             }

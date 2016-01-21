@@ -71,7 +71,7 @@ public class Faction extends AppCompatActivity {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
                 intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myfaction", startFactionIsTerror);
+                intent.putExtra("myFaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });
@@ -83,7 +83,7 @@ public class Faction extends AppCompatActivity {
                 Intent intent = new Intent(Faction.this, Session.class);
                 intent.putExtra("myMapId", myMapId);
                 intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myfaction", startFactionIsTerror);
+                intent.putExtra("myFaction", startFactionIsTerror);
                 startActivity(intent);
             }
         });

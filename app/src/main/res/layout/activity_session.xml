@@ -16,4 +16,23 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/shadow_fragment" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.evilcorp.csgo_shadow.EcoFragment"
+        android:id="@+id/eco_fragment"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/eco_fragment" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.evilcorp.csgo_shadow.BombTimerFragment"
+        android:id="@+id/bombtimer_fragment"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/bomb_timer_fragment" />
+
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package com.evilcorp.csgo_shadow;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -30,27 +32,22 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
         setFaction(startFactionIsTerror);
     }
 
-
-
     @Override
     public void setMapOverview(int myMapId) {
         ShadowFragment shadowFragment = (ShadowFragment) getSupportFragmentManager().findFragmentById(R.id.shadow_fragment);
         shadowFragment.setMapOverview(myMapId);
-
-
     }
 
     @Override
     public void setShadowBitmap(int myShadowMapId) {
         ShadowFragment shadowFragment = (ShadowFragment) getSupportFragmentManager().findFragmentById(R.id.shadow_fragment);
         shadowFragment.setShadowBitMap(myShadowMapId);
-
-
     }
 
     @Override
     public void setFaction(boolean startFactionIsTerror) {
         EcoFragment ecoFragment = (EcoFragment) getSupportFragmentManager().findFragmentById(R.id.eco_fragment);
+        Log.i("faction", "" + startFactionIsTerror);
         ecoFragment.setFaction(startFactionIsTerror);
     }
 
