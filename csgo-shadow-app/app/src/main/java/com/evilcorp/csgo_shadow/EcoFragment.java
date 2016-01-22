@@ -54,8 +54,6 @@ public class EcoFragment extends Fragment {
         startFactionIsTerror = myFaction;
         eco = new Eco(startFactionIsTerror);
         updateRoundView();
-
-        Log.i("faction2", "01 " + startFactionIsTerror);
     }
 
     private void updateRoundView(){

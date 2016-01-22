@@ -52,13 +52,13 @@ public class Shadow {
         checkCircle(x, y, 4, 1);
 
         // 8 hoek
-//        checkPixels(x, y, 0, 8);
-//        checkPixels(x, y, 1, 8);
-//        checkPixels(x, y, 2, 8);
-//        checkPixels(x, y, 3, 7);
-//        checkPixels(x, y, 5, 6);
-//        checkPixels(x, y, 6, 6);
-//        checkPixels(x, y, 7, 4);
+//        checkCircle(x, y, 0, 8);
+//        checkCircle(x, y, 1, 8);
+//        checkCircle(x, y, 2, 8);
+//        checkCircle(x, y, 3, 7);
+//        checkCircle(x, y, 5, 6);
+//        checkCircle(x, y, 6, 6);
+//        checkCircle(x, y, 7, 4);
     }
 
     public void checkCircle(int xOrigin, int yOrigin, int yOffset, int xOffset){
@@ -318,10 +318,6 @@ public class Shadow {
         int new_pixel = Color.argb(pixelAlpha, red, green, blue);
 
         return new_pixel;
-    }
-
-    public void setNewPixelOnMap(int newPixel){
-
     }
 
     public void makePixelGreen(int x, int y){

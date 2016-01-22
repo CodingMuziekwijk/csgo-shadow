@@ -129,7 +129,6 @@ public class ShadowFragment extends Fragment {
     }
 
     public void resetShadow(){
-        //timer.cancel();
         if(timerOn){
             task.cancel();
             timerOn = false;
@@ -172,14 +171,6 @@ public class ShadowFragment extends Fragment {
                     shadow = new Shadow(shadowMap, bitmap);
                     shadow.addCordsToList((int) motionEvent.getX(), (int) motionEvent.getY(), true);
                     shadow.makePixelGreen((int) motionEvent.getX(), (int) motionEvent.getY());
-                    //pixel = shadowMap.getPixel((int) motionEvent.getX(), (int) motionEvent.getY());
-
-//                    Log.i("System.out", "" + motionEvent.getX());
-//                    Log.i("System.out", "" + motionEvent.getY());
-
-//                    int r = Color.red(pixel);
-//                    int g = Color.green(pixel);
-//                    int b = Color.blue(pixel);
 
 
                     int initialDelay = 0; // start after 30 seconds
@@ -227,7 +218,8 @@ public class ShadowFragment extends Fragment {
                     task.cancel();
                     Log.i("System.out", "Finished!");
                     //updateTextViewOverview();
-                    resetShadow();
+                    //resetShadow();
+                    updateMapOverview();
                 }
 
                 shadow.clearCordList();
@@ -237,9 +229,5 @@ public class ShadowFragment extends Fragment {
                 updateMapOverview();
             }
         };
-    }
-
-    private Boolean maxShadows(int shadows){
-        return shadows == 2;
     }
 }

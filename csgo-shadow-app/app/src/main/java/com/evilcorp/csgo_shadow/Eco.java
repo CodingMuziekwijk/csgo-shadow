@@ -11,6 +11,7 @@ public class Eco {
     private int winStreak = 0;
     private int loseStreak = 0;
     private String ecoMessage;
+
     public Eco(boolean terror_faction) {
         this.terrorFaction = terror_faction;
     }
@@ -38,7 +39,6 @@ public class Eco {
         }else {
             faction = "Counter-Terrorists";
         }
-
         return faction;
     }
 
@@ -51,46 +51,47 @@ public class Eco {
 
         updateStreak(won);
 
-        if(won && terrorFaction){
-            terrorMoney += 3500 + 300;
-            counterMoney += 900 + (500 * winStreak);
-        }else if(!won && terrorFaction){
-            terrorMoney += 900 + (500 * loseStreak);
-            counterMoney += 3500 + 300;
-        }else if(!won && !terrorFaction){
-            terrorMoney += 3500 + 300;
-            counterMoney += 900 + (500 * loseStreak);
-        }
-        else if(won && !terrorFaction){
-            terrorMoney += 900 + (500 * winStreak);
-            counterMoney += 3500 + 300;
-        }
-        Log.i("countermoney", "" + counterMoney);
-        Log.i("terrormoney", "" + terrorMoney);
+        updateRoundMoney(won);
 
-        ecoMessage = checkForEco();
+//        Log.i("countermoney", "" + counterMoney);
+//        Log.i("terrormoney", "" + terrorMoney);
+
+        Log.i("countermoney", "ECO counter check = " + counterMoney);
+        Log.i("terrormoney", "ECO terror check = " + terrorMoney);
+
+        if(roundNumber == 1 || roundNumber == 16){
+            ecoMessage = "Pistol Round";
+        }else{
+            ecoMessage = calculateEcoPercentage() + "% Chance on Eco";
+        }
+
 
 
         if(eco){
             if(terrorFaction){
-                counterMoney += 4000;
-            }else{
-                terrorMoney += 4000;
+                Log.i("terrormoney", "ECO & terror");
+                terrorMoney -= 4000;
+            }else if (!isTerror_faction()){
+                Log.i("terrormoney", "ECO & counter");
+                counterMoney -= 4000;
             }
+        }else if (roundNumber != 2 && roundNumber != 17){
+            Log.i("terrormoney", "normalround");
+            counterMoney -= 4000;
+            terrorMoney -= 4000;
+        }else{
+            Log.i("terrormoney", "pistolround");
+            counterMoney -= 500;
+            terrorMoney -= 500;
         }
 
-        counterMoney -= 4000;
-        terrorMoney -= 4000;
-
-        if(counterMoney > 16000){
-            counterMoney = 16000;
-        }
-        if(terrorMoney > 16000){
-            terrorMoney = 16000;
-        }
+        checkMoneyCap();
 
         isHalfTime();
         isEndOfGame();
+
+        Log.i("countermoney", "" + counterMoney);
+        Log.i("terrormoney", "" + terrorMoney);
 
         return;
     }
@@ -113,12 +114,9 @@ public class Eco {
         if(roundNumber == 16){
             counterMoney = 800;
             terrorMoney = 800;
-
-            if(terrorFaction){
-                terrorFaction = false;
-            }else{
-                terrorFaction = true;
-            }
+            winStreak = 0;
+            loseStreak = 0;
+            terrorFaction = !terrorFaction;
         }
     }
 
@@ -139,21 +137,51 @@ public class Eco {
         }
     }
 
-    private String checkForEco(){
-        String ecoMessage;
-        if((counterMoney <= 4000) && (terrorMoney <= 4000)){
-            Log.i("terrormoney", "Counter & Terror Eco!");
-            ecoMessage = "Both will Eco";
-        }else if(counterMoney <= 4000){
-            Log.i("terrormoney", "Counter Eco!");
-            ecoMessage = "Counter Eco!";
-        }else if(terrorMoney <= 4000){
-            Log.i("terrormoney", "Terror Eco!");
-            ecoMessage = "Terror Eco!";
-        }else{
-            ecoMessage = "";
+    private void updateRoundMoney(boolean won){
+        if(won && terrorFaction){
+            terrorMoney += 3500 + 300;
+            counterMoney += 900 + (500 * winStreak);
+        }else if(!won && terrorFaction){
+            terrorMoney += 900 + (500 * loseStreak);
+            counterMoney += 3500 + 300;
+        }else if(!won && !isTerror_faction()){
+            terrorMoney += 3500 + 300;
+            counterMoney += 900 + (500 * loseStreak);
         }
+        else if(won && !isTerror_faction()){
+            terrorMoney += 900 + (500 * winStreak);
+            counterMoney += 3500 + 300;
+        }
+    }
 
-        return ecoMessage;
+    public void checkMoneyCap(){
+        if(counterMoney > 16000){
+            counterMoney = 16000;
+        }
+        if(terrorMoney > 16000){
+            terrorMoney = 16000;
+        }
+    }
+
+    public int calculateEcoPercentage(){
+        double factor = 100.00/2500.00;
+
+        if(isTerror_faction()){
+            if(counterMoney <= 2500){
+                return 100;
+            }else if(counterMoney >= 5000){
+                return 0;
+            }else{
+                return  (int) Math.ceil(100 - (factor * (counterMoney - 2500)));
+            }
+        }else{
+            if(terrorMoney <= 2500){
+                return 100;
+            }else if(terrorMoney >= 5000){
+                return 0;
+            }else{
+                return  (int) Math.ceil(100 - (factor * (terrorMoney - 2500)));
+            }
+        }
     }
 }
