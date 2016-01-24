@@ -73,8 +73,7 @@ public class BombTimerFragment extends Fragment {
                     public void onTick(long millisUntilFinished) {
 
 
-
-                        String message = ""+String.format(FORMAT,
+                        String message = "" + String.format(FORMAT,
                                 TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)),  // Seconds
                                 millisUntilFinished - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished))); // Millis
 
@@ -97,5 +96,13 @@ public class BombTimerFragment extends Fragment {
                 countDownText.setText(message);
             }
         });
+    }
+
+    public void resetTimer(){
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+        }
+        start_countdown_button.setVisibility(View.VISIBLE);
+        updateTextView("");
     }
 }

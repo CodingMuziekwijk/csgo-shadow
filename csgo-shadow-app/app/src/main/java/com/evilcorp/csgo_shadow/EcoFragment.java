@@ -25,6 +25,7 @@ public class EcoFragment extends Fragment {
 
     public interface EcoFragmentListener{
         void setFaction(boolean startFactionIsTerror);
+        void resetTimer();
     }
 
     @Override
@@ -76,6 +77,7 @@ public class EcoFragment extends Fragment {
             public void onClick(View v) {
                 eco.endOfRound(true, false);
                 updateRoundView();
+                activityCommander.resetTimer();
             }
         });
         Button loseButton = (Button) view.findViewById(R.id.loseButton);
@@ -84,6 +86,7 @@ public class EcoFragment extends Fragment {
             public void onClick(View v) {
                 eco.endOfRound(false, false);
                 updateRoundView();
+                activityCommander.resetTimer();
             }
         });
         Button winEcoButton = (Button) view.findViewById(R.id.winEcoButton);
@@ -92,6 +95,7 @@ public class EcoFragment extends Fragment {
             public void onClick(View v) {
                 eco.endOfRound(true, true);
                 updateRoundView();
+                activityCommander.resetTimer();
             }
         });
         Button loseEcoButton = (Button) view.findViewById(R.id.loseEcoButton);
@@ -100,6 +104,7 @@ public class EcoFragment extends Fragment {
             public void onClick(View v) {
                 eco.endOfRound(false, true);
                 updateRoundView();
+                activityCommander.resetTimer();
             }
         });
     }

@@ -51,4 +51,10 @@ public class Session extends AppCompatActivity implements ShadowFragment.ShadowF
         ecoFragment.setFaction(startFactionIsTerror);
     }
 
+    @Override
+    public void resetTimer(){
+        BombTimerFragment bombTimerFragment = (BombTimerFragment) getSupportFragmentManager().findFragmentById(R.id.bombtimer_fragment);
+        bombTimerFragment.resetTimer();
+    }
+
 }
