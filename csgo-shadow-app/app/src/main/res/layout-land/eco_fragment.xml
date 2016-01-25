@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    style="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Round"
+        android:id="@+id/roundView"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="70dp"
+        android:layout_below="@+id/loseButton"
+        android:layout_alignEnd="@+id/factionView"
+        android:layout_alignStart="@+id/loseButton"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Counter-Terrorists"
+        android:id="@+id/factionView"
+        android:textColor="#ffffff"
+        android:textStyle="italic"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/roundView"
+        android:layout_alignEnd="@+id/loseEcoButton"
+        android:layout_alignStart="@+id/loseButton" />
+
+    <Button
+        style="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Win"
+        android:id="@+id/winButton"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        style="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Win + Eco"
+        android:id="@+id/winEcoButton"
+        android:layout_alignTop="@+id/winButton"
+        android:layout_toEndOf="@+id/winButton" />
+
+    <Button
+        style="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Lose"
+        android:id="@+id/loseButton"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/winButton"
+        android:layout_toStartOf="@+id/winEcoButton" />
+
+    <Button
+        style="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Lose + Eco"
+        android:id="@+id/loseEcoButton"
+        android:layout_below="@+id/winEcoButton"
+        android:layout_alignStart="@+id/winEcoButton" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pistol Round"
+        android:id="@+id/ecoView"
+        android:textColor="#00FF00"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/factionView"
+        android:layout_alignEnd="@+id/factionView"
+        android:layout_alignStart="@+id/loseButton"
+        android:layout_marginTop="20dp"/>
+</RelativeLayout>

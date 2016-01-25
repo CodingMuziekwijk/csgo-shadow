@@ -16,16 +16,8 @@ public class Eco {
         this.terrorFaction = terror_faction;
     }
 
-    public int getCount_money() {
-        return counterMoney;
-    }
-
     public int getRound_number() {
         return roundNumber;
-    }
-
-    public int getTerror_money() {
-        return terrorMoney;
     }
 
     public String getEcoMessage(){
@@ -53,9 +45,6 @@ public class Eco {
 
         updateRoundMoney(won);
 
-//        Log.i("countermoney", "" + counterMoney);
-//        Log.i("terrormoney", "" + terrorMoney);
-
         Log.i("countermoney", "ECO counter check = " + counterMoney);
         Log.i("terrormoney", "ECO terror check = " + terrorMoney);
 
@@ -64,8 +53,6 @@ public class Eco {
         }else{
             ecoMessage = calculateEcoPercentage() + "% Chance on Eco";
         }
-
-
 
         if(eco){
             if(terrorFaction){

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.evilcorp.csgo_shadow.Session"
+    android:background="#000000">
+
+
+    <fragment
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:name="com.evilcorp.csgo_shadow.ShadowFragment"
+        android:id="@+id/shadow_fragment"
+        tools:layout="@layout/shadow_fragment"
+        android:layout_alignParentEnd="true" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.evilcorp.csgo_shadow.EcoFragment"
+        android:id="@+id/eco_fragment"
+        tools:layout="@layout/eco_fragment"
+        android:layout_alignTop="@+id/shadow_fragment"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/shadow_fragment" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.evilcorp.csgo_shadow.BombTimerFragment"
+        android:id="@+id/bombtimer_fragment"
+        tools:layout="@layout/bomb_timer_fragment"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

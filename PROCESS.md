@@ -194,3 +194,114 @@
 <ul>
   <li>None.</li>
 </ul>
+
+#Day 11
+
+<h4>Goals:</h4>
+<ul>
+  <li>Shadowfunctie slimmer maken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Shadowfunctie kan gedeeltelijk kruispunten herkennen</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+</ul>
+
+#Day 12
+
+<h4>Goals:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Shadowfunctie iets verbeterd</li>
+  <li>Ecofunctie uitgebreid</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+</ul>
+
+#Day 13
+
+<h4>Goals:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+  <li>Verschillende soorten muurtjes herkennen</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Verschillende soorten muurtjes herkennen</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+</ul>
+
+#Day 14
+
+<h4>Goals:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+  <li>Eco Functie afmaken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+    <li>Eco Functie afmaken</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen</li>
+</ul>
+
+#Day 15
+
+<h4>Goals:</h4>
+<ul>
+  <li>Presentatie geven</li>
+  <li>Layout opmaken</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>
+  <li>Presentatie geven</li>
+  <li>Layout opmaken (heeft negatief uitgepakt)</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>Kruispunten 100% goed herkennen (gaat ook niet meer lukken voor verkeerde keuzes aan het begin)</li>
+</ul>
+
+#Day 16
+<h4>Goals:</h4>
+<ul>
+  <li>Landscape mode toevoegen</li>
+  <li>Code opmaken</li>
+  <li>Starten aan verslag</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>  
+  <li>Landscape mode toevoegen</li>
+  <li>Code opmaken</li>
+  <li>Starten aan verslag</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
