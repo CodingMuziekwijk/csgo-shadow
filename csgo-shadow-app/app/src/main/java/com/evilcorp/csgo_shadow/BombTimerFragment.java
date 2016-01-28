@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,7 +23,7 @@ public class BombTimerFragment extends Fragment {
     //A format for the countdown TextView
     private static final String FORMAT = "%02d:%03d";
 
-    //Communicate with the Session activity
+    //Demands from session that it implements these functions
     BombTimerFragmentListener activityCommander;
     public interface BombTimerFragmentListener{
         void setMapOverview(int myMapId);

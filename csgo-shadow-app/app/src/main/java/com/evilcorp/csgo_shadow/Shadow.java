@@ -3,14 +3,11 @@ package com.evilcorp.csgo_shadow;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.AsyncTask;
-import android.util.Log;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Shadow {
 
+    //Global variables
     int xLocalOrigin;
     int yLocalOrigin;
     Bitmap shadowMap;
@@ -20,23 +17,21 @@ public class Shadow {
     ArrayList<Integer> xListContainer = new ArrayList<>();
     ArrayList<Integer> yListContainer = new ArrayList<>();
 
+    //Initialize conditions
     public Shadow(Bitmap shadowMap, Bitmap bitmap) {
         this.shadowMap = shadowMap;
         this.bitmap = bitmap;
     }
 
-    public Bitmap getshadowMap(){
-        return shadowMap;
-    }
-
+    //Generates a new frame of the shadowmap & bitmap
     public Bitmap calculateNewFrame(){
         for (int i = 0; i < xListContainer.size(); i++) {
-            //setStep(cords_xx.get(i), cords_yy.get(i));
             createCircle(xListContainer.get(i), yListContainer.get(i));
         }
         return bitmap;
     }
 
+    //Adds cords to the "Not yet visited" list
     public void addCordsToList(int x, int y, boolean outer){
         if(outer){
             xList.add(x);
@@ -44,32 +39,26 @@ public class Shadow {
         }
     }
 
+    //Defines a quarter of "circle" with offsets from the orignal cords
     public void createCircle(int x, int y){
         checkCircle(x, y, 0, 4);
         checkCircle(x, y, 1, 4);
         checkCircle(x, y, 2, 3);
         checkCircle(x, y, 3, 3);
         checkCircle(x, y, 4, 1);
-
-        // 8 hoek
-//        checkCircle(x, y, 0, 8);
-//        checkCircle(x, y, 1, 8);
-//        checkCircle(x, y, 2, 8);
-//        checkCircle(x, y, 3, 7);
-//        checkCircle(x, y, 5, 6);
-//        checkCircle(x, y, 6, 6);
-//        checkCircle(x, y, 7, 4);
     }
 
+    //Mirrors the quarter of the circle so it becomes a circle and checks it
     public void checkCircle(int xOrigin, int yOrigin, int yOffset, int xOffset){
         for(int i = 1; i < xOffset + 1; i++) {
             boolean outer = false;
             xLocalOrigin = xOrigin;
             yLocalOrigin = yOrigin;
 
-            if ( (i == 4 & yOffset == 0) || (i == 3 & yOffset == 3)){  //|| ( i == 4 & yOffset == 4) & (d == 5 || d == 0)) || (i == 0 & d == 7)
+            if ( (i == 4 & yOffset == 0) || (i == 3 & yOffset == 3)){
                 outer = true;
             }
+
             // Bottom right
             checkPixel(xOrigin + i, yOrigin + yOffset, outer);
             // Bottom left
@@ -81,6 +70,7 @@ public class Shadow {
         }
     }
 
+    //The brains of the algorithm which checks all colors
     public void checkPixel(int x, int y, boolean outer){
         int color = getColor(x, y);
         int ownColor = getColor(xLocalOrigin, yLocalOrigin);
@@ -90,44 +80,33 @@ public class Shadow {
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }else if (isYellow(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.YELLOW);
-                //bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.YELLOW);
                 addCordsToList(x, y, outer);
             }else if (isRed(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.RED);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.RED);
                 addCordsToList(x, y, outer);
             }else if (isBlue(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.BLUE);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.BLUE);
                 addCordsToList(x, y, outer);
             }else if (isGreen(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GREEN);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GREEN);
                 addCordsToList(x, y, outer);
             }else if (isMagenta(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.MAGENTA);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.MAGENTA);
                 addCordsToList(x, y, outer);
             }else if (isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                //bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
@@ -135,9 +114,6 @@ public class Shadow {
             if(isYellow(color)){
                 return;
             }else if(isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                //bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
@@ -146,20 +122,15 @@ public class Shadow {
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.RED);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.RED);
                 addCordsToList(x, y, outer);
             }else if (isGreen(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }else if (isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
@@ -168,20 +139,15 @@ public class Shadow {
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.BLUE);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.BLUE);
                 addCordsToList(x, y, outer);
             }else if (isMagenta(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }else if (isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
@@ -190,53 +156,44 @@ public class Shadow {
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-               //bitmap.setPixel(x, y, Color.GREEN);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GREEN);
                 addCordsToList(x, y, outer);
             }else if (isRed(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }else if (isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }else if(isMagenta(ownColor)){
-            // Log.d("test", Color.alpha(shadowMap.getPixel(x, y))+ " " +  Color.green(shadowMap.getPixel(x, y)) + " " + Color.red(shadowMap.getPixel(x, y)) + " " + Color.blue(shadowMap.getPixel(x, y)));
             if(isMagenta(color) || isYellow(color)){
                 return;
             }else if(isWhite(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.MAGENTA);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.MAGENTA);
                 addCordsToList(x, y, outer);
             }else if (isBlue(color)){
                 int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
                 bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }else if (isCyan(color)){
-                int new_pixel = makeNewPixel(bitmap.getPixel(x, y));
-                //bitmap.setPixel(x, y, Color.GRAY);
-                bitmap.setPixel(x, y, new_pixel);
                 shadowMap.setPixel(x, y, Color.GRAY);
                 addCordsToList(x, y, outer);
             }
         }
     }
 
+    //Checks if the shadow proces is completed
     public boolean whiteInMap(){
         return(xList.size() == 0);
     }
 
+    //Gets a solid color from a pixel (because of interpolation)
     public int getColor(int x, int y){
         int pixel = shadowMap.getPixel(x, y);
 
@@ -292,9 +249,6 @@ public class Shadow {
         return Color.CYAN == color;
     }
 
-    private Boolean isDkgray(int color){
-        return Color.DKGRAY == color;
-    }
     public void clearCordList(){
         xList.clear();
         yList.clear();
@@ -310,7 +264,8 @@ public class Shadow {
         yListContainer = new ArrayList<>(yList);
     }
 
-    public int makeNewPixel(int pixel){
+    //Creates a new pixel to display on the users screen
+    private int makeNewPixel(int pixel){
         int pixelAlpha = Color.alpha(pixel);
         int red = Color.red(pixel);
         int green = Color.green(pixel) + 50;
@@ -323,5 +278,4 @@ public class Shadow {
     public void makePixelGreen(int x, int y){
         shadowMap.setPixel(x, y, Color.GRAY);
     }
-
 }

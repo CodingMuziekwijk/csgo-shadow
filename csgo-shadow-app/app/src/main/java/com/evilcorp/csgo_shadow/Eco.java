@@ -4,6 +4,7 @@ import android.util.Log;
 
 public class Eco {
 
+    //Global variables
     private int counterMoney = 800;
     private int terrorMoney = 800;
     private boolean terrorFaction;
@@ -12,6 +13,7 @@ public class Eco {
     private int loseStreak = 0;
     private String ecoMessage;
 
+    //Initialize condition(s)
     public Eco(boolean terror_faction) {
         this.terrorFaction = terror_faction;
     }
@@ -41,46 +43,26 @@ public class Eco {
     public void endOfRound(Boolean won, Boolean eco){
         roundNumber += 1;
 
+        //Handles win/lose streaks
         updateStreak(won);
 
+        //Handles incoming money
         updateRoundMoney(won);
 
-        Log.i("countermoney", "ECO counter check = " + counterMoney);
-        Log.i("terrormoney", "ECO terror check = " + terrorMoney);
-
+        //Gives prediction of an enemy Eco round
         if(roundNumber == 1 || roundNumber == 16){
             ecoMessage = "Pistol Round";
         }else{
             ecoMessage = calculateEcoPercentage() + "% Chance on Eco";
         }
 
-        if(eco){
-            if(terrorFaction){
-                Log.i("terrormoney", "ECO & terror");
-                terrorMoney -= 4000;
-            }else if (!isTerror_faction()){
-                Log.i("terrormoney", "ECO & counter");
-                counterMoney -= 4000;
-            }
-        }else if (roundNumber != 2 && roundNumber != 17){
-            Log.i("terrormoney", "normalround");
-            counterMoney -= 4000;
-            terrorMoney -= 4000;
-        }else{
-            Log.i("terrormoney", "pistolround");
-            counterMoney -= 500;
-            terrorMoney -= 500;
-        }
-
+        //Handles money spend.
+        ecoHandler(eco);
         checkMoneyCap();
 
+        //Handles Game progress
         isHalfTime();
         isEndOfGame();
-
-        Log.i("countermoney", "" + counterMoney);
-        Log.i("terrormoney", "" + terrorMoney);
-
-        return;
     }
 
     private void resetEco(){
@@ -142,10 +124,10 @@ public class Eco {
     }
 
     public void checkMoneyCap(){
-        if(counterMoney > 16000){
+        if(counterMoney >= 16000){
             counterMoney = 16000;
         }
-        if(terrorMoney > 16000){
+        if(terrorMoney >= 16000){
             terrorMoney = 16000;
         }
     }
@@ -169,6 +151,26 @@ public class Eco {
             }else{
                 return  (int) Math.ceil(100 - (factor * (terrorMoney - 2500)));
             }
+        }
+    }
+
+    public void ecoHandler(boolean eco){
+        if(eco){
+            if(terrorFaction){
+                Log.i("terrormoney", "ECO & terror");
+                terrorMoney -= 4000;
+            }else if (!isTerror_faction()){
+                Log.i("terrormoney", "ECO & counter");
+                counterMoney -= 4000;
+            }
+        }else if (roundNumber != 2 && roundNumber != 17){
+            Log.i("terrormoney", "normalround");
+            counterMoney -= 4000;
+            terrorMoney -= 4000;
+        }else{
+            Log.i("terrormoney", "pistolround");
+            counterMoney -= 500;
+            terrorMoney -= 500;
         }
     }
 }

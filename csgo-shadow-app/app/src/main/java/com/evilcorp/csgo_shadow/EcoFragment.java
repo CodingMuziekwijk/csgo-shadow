@@ -4,17 +4,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import junit.framework.TestCase;
-
 public class EcoFragment extends Fragment {
 
+    //Global variables
     private boolean startFactionIsTerror;
     private TextView roundView;
     private TextView factionView;
@@ -23,6 +21,7 @@ public class EcoFragment extends Fragment {
 
     EcoFragmentListener activityCommander;
 
+    //Demands from session that it implements these functions
     public interface EcoFragmentListener{
         void setFaction(boolean startFactionIsTerror);
         void resetTimer();
@@ -62,7 +61,7 @@ public class EcoFragment extends Fragment {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // This code will run on the UI thread
+                // This code runs on the UI thread
                 roundView.setText("Round " + eco.getRound_number());
                 factionView.setText("Playing as " + eco.getFactionName());
                 ecoView.setText(eco.getEcoMessage());

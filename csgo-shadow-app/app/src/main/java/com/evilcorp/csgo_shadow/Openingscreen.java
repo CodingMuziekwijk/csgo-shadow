@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -17,11 +18,14 @@ import java.util.List;
 
 public class Openingscreen extends AppCompatActivity {
 
-    private List<gameMap> myMaps = new ArrayList<gameMap>();
+    //Global variables
+    private List<gameMap> myMaps = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Removes notificationBar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_openingscreen);
 
         populateMapList();
@@ -30,14 +34,9 @@ public class Openingscreen extends AppCompatActivity {
     }
 
     private void populateMapList() {
-        myMaps.add(new gameMap("Wall Jump", R.drawable.oefenlevel_icon, R.drawable.test_level_walljump, R.drawable.test_level_walljump));
-        myMaps.add(new gameMap("Blanco", R.drawable.oefenlevel_icon, R.drawable.blanco_level, R.drawable.blanco_level));
-        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel, R.drawable.oefenlevel));
-        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.overview_dust2_testmap02, R.drawable.overview_dust2_testmap02));
-        myMaps.add(new gameMap("Crossover", R.drawable.oefenlevel_icon, R.drawable.testlevel_crossover_overview05, R.drawable.testlevel_crossover_overview05));
         myMaps.add(new gameMap("Dust 2", R.drawable.dust2_icon, R.drawable.overview_dust2_black, R.drawable.overview_dust2_testmap02));
         myMaps.add(new gameMap("Train", R.drawable.train_icon, R.drawable.overview_train, R.drawable.dust2_testmap));
-        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Mirage", R.drawable.mirage_icon, R.drawable.overview_mirage, R.drawable.shadow_overview_mirage));
         myMaps.add(new gameMap("Inferno", R.drawable.inferno_icon, R.drawable.overview_inferno, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Cobblestone", R.drawable.cobblestone_icon, R.drawable.overview_cobblestone, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Overpass", R.drawable.overpass_icon, R.drawable.overview_overpass, R.drawable.dust2_testmap));
@@ -50,15 +49,22 @@ public class Openingscreen extends AppCompatActivity {
         myMaps.add(new gameMap("Italy", R.drawable.italy_icon, R.drawable.overview_italy, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Assault", R.drawable.assault_icon, R.drawable.overview_assault, R.drawable.dust2_testmap));
         myMaps.add(new gameMap("Militia", R.drawable.militia_icon, R.drawable.overview_militia, R.drawable.dust2_testmap));
+        myMaps.add(new gameMap("Wall Jump", R.drawable.oefenlevel_icon, R.drawable.test_level_walljump, R.drawable.test_level_walljump));
+        myMaps.add(new gameMap("Blanco", R.drawable.oefenlevel_icon, R.drawable.blanco_level, R.drawable.blanco_level));
+        myMaps.add(new gameMap("Oefenlevel", R.drawable.oefenlevel_icon, R.drawable.oefenlevel, R.drawable.oefenlevel));
+        myMaps.add(new gameMap("Dust2 Oefenmap", R.drawable.oefenlevel_icon, R.drawable.overview_dust2_testmap02, R.drawable.overview_dust2_testmap02));
+        myMaps.add(new gameMap("Crossover", R.drawable.oefenlevel_icon, R.drawable.testlevel_crossover_overview05, R.drawable.testlevel_crossover_overview05));
     }
 
-    private void populateListView() {        ArrayAdapter<gameMap> adapter = new MyListAdapter();
+    private void populateListView() {
+        ArrayAdapter<gameMap> adapter = new MyListAdapter();
         GridView list = (GridView) findViewById(R.id.mapListView);
         list.setAdapter(adapter);
     }
 
     private class MyListAdapter extends ArrayAdapter<gameMap> {
         public MyListAdapter(){
+            //Creates a costum list from myMaps
             super(Openingscreen.this, R.layout.item_view, myMaps);
         }
 
@@ -73,11 +79,11 @@ public class Openingscreen extends AppCompatActivity {
             // Find map to work with
             gameMap currentGameMap = myMaps.get(position);
 
-            // Image:
+            // Map icon:
             ImageView imageView = (ImageView)itemView.findViewById(R.id.item_icon);
             imageView.setImageResource(currentGameMap.getIconID());
 
-            // Name:
+            // Map name:
             TextView makeText = (TextView) itemView.findViewById(R.id.item_txt_make);
             makeText.setText(currentGameMap.getName());
 
@@ -90,15 +96,16 @@ public class Openingscreen extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-
+                //Copies the selected map from the list
                 gameMap clickedGameMap = myMaps.get(position);
                 String message = "" + clickedGameMap.getName();
+
+                //Gives user feedback on which map they selected
                 Toast.makeText(Openingscreen.this, message, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(Openingscreen.this, Faction.class);
                 intent.putExtra("myMapId", myMaps.get(position).getOverViewID() );
                 intent.putExtra("myShadowMapId", myMaps.get(position).getShadowOverViewID() );
-
                 startActivity(intent);
             }
         });

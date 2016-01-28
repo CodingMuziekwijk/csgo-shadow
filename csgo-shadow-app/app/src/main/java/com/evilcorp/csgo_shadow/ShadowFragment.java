@@ -29,14 +29,11 @@ public class ShadowFragment extends Fragment {
     private Bitmap bitmap;
     private Bitmap shadowMap;
     private TextView testTextView;
-    private ArrayList<Integer> cords_x = new ArrayList<>();
-    private ArrayList<Integer> cords_y = new ArrayList<>();
     final Timer timer = new Timer();
     private TimerTask task;
     private Button resetButton;
     private Shadow shadow;
     private boolean timerOn= false;
-
     private int mapId;
     private int shadowMapId;
 
@@ -44,6 +41,7 @@ public class ShadowFragment extends Fragment {
 
     ShadowFragmentListener activityCommander;
 
+    //Demands from session that it implements these functions
     public interface ShadowFragmentListener{
         void setMapOverview(int myMapId);
         void setShadowBitmap(int myShadowMapId);
@@ -104,16 +102,6 @@ public class ShadowFragment extends Fragment {
             public void run() {
                 // This code will run on the UI thread
                 mapOverview.setImageBitmap(bitmap);
-            }
-        });
-    }
-
-    public void updateTextViewOverview(){
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // This code will run on the UI thread
-                testTextView.setText("Finished!");
             }
         });
     }

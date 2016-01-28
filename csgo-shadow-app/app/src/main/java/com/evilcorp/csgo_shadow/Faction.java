@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Faction extends AppCompatActivity {
 
@@ -19,19 +18,20 @@ public class Faction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Removes notificationBar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_faction);
 
         bundle = getIntent().getExtras();
         myMapId = bundle.getInt("myMapId");
         myShadowMapId = bundle.getInt("myShadowMapId");
 
-        onTerrorClick();
-        onCounterClick();
+        createsTerrorButtons();
+        createsCounterButtons();
     }
 
-
-
-    private void onTerrorClick() {
+    private void createsTerrorButtons() {
+        //Displays TerrorButtons
         ImageView terrorButton = (ImageView) findViewById(R.id.terror_imageView);
         TextView terrorTextButton = (TextView) findViewById(R.id.terrorTextView);
 
@@ -39,11 +39,8 @@ public class Faction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startFactionIsTerror = true;
-                Intent intent = new Intent(Faction.this, Session.class);
-                intent.putExtra("myMapId", myMapId );
-                intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myFaction", startFactionIsTerror);
-                startActivity(intent);
+                //Create intent and go to sessionActivity
+                createIntent();
             }
         });
 
@@ -51,16 +48,14 @@ public class Faction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startFactionIsTerror = true;
-                Intent intent = new Intent(Faction.this, Session.class);
-                intent.putExtra("myMapId", myMapId);
-                intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myFaction", startFactionIsTerror);
-                startActivity(intent);
+                //Create intent and go to sessionActivity
+                createIntent();
             }
         });
     }
 
-    private void onCounterClick() {
+    private void createsCounterButtons() {
+        //Displays CounterButtons
         ImageView counterImageButton = (ImageView) findViewById(R.id.counter_imageView);
         TextView counterTextButton = (TextView) findViewById(R.id.counterTextView);
 
@@ -68,11 +63,8 @@ public class Faction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startFactionIsTerror = false;
-                Intent intent = new Intent(Faction.this, Session.class);
-                intent.putExtra("myMapId", myMapId);
-                intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myFaction", startFactionIsTerror);
-                startActivity(intent);
+                //Create intent and go to sessionActivity
+                createIntent();
             }
         });
 
@@ -80,13 +72,22 @@ public class Faction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startFactionIsTerror = false;
-                Intent intent = new Intent(Faction.this, Session.class);
-                intent.putExtra("myMapId", myMapId);
-                intent.putExtra("myShadowMapId", myShadowMapId);
-                intent.putExtra("myFaction", startFactionIsTerror);
-                startActivity(intent);
+                //Create intent and go to sessionActivity
+                createIntent();
             }
         });
+    }
 
+    private void createIntent(){
+        //Creates intent
+        Intent intent = new Intent(Faction.this, Session.class);
+
+        //Adds variables to intent
+        intent.putExtra("myMapId", myMapId);
+        intent.putExtra("myShadowMapId", myShadowMapId);
+        intent.putExtra("myFaction", startFactionIsTerror);
+
+        //Goes to Sessions Activity
+        startActivity(intent);
     }
 }
