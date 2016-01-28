@@ -29,6 +29,13 @@
 
 <H1>Technisch Design</H1>
 
+<H2>Overzicht</H2>
+
+![Figure 1-3](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/00ActivityVariablePassingOverView00.jpg)
+
+![Figure 1-4](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/00FragmentVariableOverView00.jpg)
+
+
 <H2>Activities</H2>
 
 <H3>OpeningScreenActivity</H3>
@@ -274,6 +281,8 @@
 
 <P>Uiteindelijk is er gekozen voor de eerste optie, het maken van één enkele shadowbitmap. Dit leek een logische optie, doordat het meer programmeer vaardigheden kost dan optie twee en waarschijnlijk een stuk minder RAM kost dan optie 3.</P>
 
+![Figure 1-5](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/normalVSshadow.jpg)
+
 <H4>Reflectie</H4>
 <P>De keuze voor één shadowbitmap was uiteindelijk niet de juiste voor het perfecte eindresultaat. Het blijkt onmogelijk te zijn om een goed werkend kruispunt te maken met deze methode, mede door het interpoleren wat android automatisch doet op bmps.</P>
 
@@ -333,6 +342,8 @@ Hierbij heb ik in paint een pixel grid gemaakt en bedacht welke pixels essentiee
 <P>Nadat het gelukt was om de shadow functie in cirkels te laten verspreiden, ontstond er een nieuw probleem. De thread op de CPU kon het allemaal niet meer aan. Hoewel de CPU maar 20% van zijn totaal verbruikte, benutte hij dit niet.</P>
 
 <P>Ik kon me wel een oplossing voorstellen, waarin de lijst die hij moest verwerken opgesplistst zou worden in twee processen. Echter is het me niet gelukt om dit werkend te krijgen op de shadowfunctie. Uiteindelijk is er dan ook gekozen om niet een cirkel te gebruiken, maar een 8 hoek.</P>
+
+![Figure 1-6](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/pixels01.jpg)
 
 <H3>Langzaam algoritme</H3>
 
