@@ -1,5 +1,7 @@
 #Report
 
+![Figure 1-1](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/00ScreenOverView00.jpg)
+
 <h3>Wat is Counter Strike?</h3>
 <P>Counter Strike Global Offensive (CS:GO) is een computerspel gemaakt door Valve. Dit spel heeft 10 miljoen unieke maandelijkse gebruikers en wordt beschouwd als de meest competitieve shooter. </P>
 
@@ -16,6 +18,9 @@
 	<li>Eco</li>
 	<li>BombTimer</li>
 </ul>
+
+![Figure 1-2](https://github.com/CodingMuziekwijk/csgo-shadow/blob/master/doc/00FragmentOverView00.jpg)
+
 <P>Shadow is een tool waarbij de speler op het scherm kan klikken om de locatie van een gevonden vijand te markeren. Vervolgens gaat er een "shadow" lopen vanaf deze locatie. De shadow markeert de locaties waar de vijand zich kan bevinden (door de kaart over te lopen met de maximale snelheid die een speler kan hebben).</P>
 
 <P>Eco is een tool die (grofweg) bijhoudt hoeveel geld een vijandig team bezit. Hierdoor kan voorspelt worden of de vijanden genoeg geld hebben om wapens te kopen of niet.</P>
