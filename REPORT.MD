@@ -29,6 +29,239 @@
 
 <H1>Technisch Design</H1>
 
+<H2>Activities</H2>
+
+<H3>OpeningScreenActivity</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private List myMaps = new ArrayList();</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>private void populateMapList()</li>
+	<li>private void populateListView()</li>
+	<li>private class MyListAdapter extends ArrayAdapter</li>
+	<li>private void registerClickCallBack()</li>
+</ul>
+
+<H3>FactionActivity</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private Bundle bundle;</li>
+	<li>private int myMapId;</li>
+	<li>private int myShadowMapId;</li>
+	<li>private boolean startFactionIsTerror;)</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>private void createsTerrorButtons()</li>
+	<li>private void createsCounterButtons()</li>
+	<li>private void createIntent()</li>
+</ul>
+
+<H3>SessionActivity</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private int myMapId;</li>
+	<li>private int myShadowMapId;</li>
+	<li>private boolean startFactionIsTerror;</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>public void setMapOverview(int myMapId)</li>
+	<li>public void setShadowBitmap(int myShadowMapId)</li>
+	<li>public void setFaction(boolean startFactionIsTerror)</li>
+	<li>public void resetTimer()</li>
+</ul>
+
+<H2>Classes</H2>
+
+<H3>gameMap</H3>
+
+<P>Initialize conditions: public gameMap(String name, int iconID, int overViewID, int shadowOverViewID)</P>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private String name;</li>
+	<li>private int iconID;</li>
+	<li>private int overViewID;</li>
+	<li>private int shadowOverViewID;</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>public String getName()</li>
+	<li>public int getIconID()</li>
+	<li>public int getOverViewID()</li>
+	<li>public int getShadowOverViewID()</li>
+</ul>
+
+<H3>Eco</H3>
+
+<P>Initialize conditions: public Eco(boolean terror_faction)</P>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private int counterMoney = 800;</li>
+	<li>private int terrorMoney = 800;</li>
+	<li>private boolean terrorFaction;</li>
+	<li>private int roundNumber = 1;</li>
+	<li>private int winStreak = 0;</li>
+	<li>private int loseStreak = 0;</li>
+	<li>private String ecoMessage;()</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>public int getRound_number()</li>
+	<li>public String getEcoMessage()</li>
+	<li>public String getFactionName()</li>
+	<li>public boolean isTerror_faction()</li>
+	<li>public void endOfRound(Boolean won, Boolean eco)</li>
+	<li>private void resetEco()</li>
+	<li>private void isEndOfGame()</li>
+	<li>private void isHalfTime()</li>
+	<li>private void updateStreak(boolean won)</li>
+	<li>private void updateRoundMoney(boolean won)</li>
+	<li>public void checkMoneyCap()</li>
+	<li>public int calculateEcoPercentage()</li>
+	<li>public void ecoHandler(boolean eco)</li>
+</ul>
+
+<H3>Shadow</H3>
+
+<P>Initialize conditions: public Shadow(Bitmap shadowMap, Bitmap bitmap)</P>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>int xLocalOrigin;</li>
+	<li>int yLocalOrigin;</li>
+	<li>Bitmap shadowMap;</li>
+	<li>Bitmap bitmap;</li>
+	<li>ArrayList xList = new ArrayList();</li>
+	<li>ArrayList yList = new ArrayList();</li>
+	<li>ArrayList xListContainer = new ArrayList();</li>
+	<li>ArrayList yListContainer = new ArrayList();</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+<li>public Bitmap calculateNewFrame()</li>
+<li>public void addCordsToList(int x, int y, boolean outer)</li>
+<li>public void createCircle(int x, int y)</li>
+<li>public void checkCircle(int xOrigin, int yOrigin, int yOffset, int xOffset)</li>
+<li>public void checkPixel(int x, int y, boolean outer)</li>
+<li>public boolean whiteInMap()</li>
+<li>public int getColor(int x, int y)</li>
+<li>private Boolean isWhite(int color)</li>
+<li>private Boolean isRed(int color)</li>
+<li>private Boolean isMagenta(int color)</li>
+<li>private Boolean isGreen(int color)</li>
+<li>private Boolean isBlue(int color)</li>
+<li>private Boolean isGray(int color)</li>
+<li>private Boolean isYellow(int color)</li>
+<li>private Boolean isCyan(int color)</li>
+<li>public void clearCordList()</li>
+<li>public void clearCordListContainer()</li>
+<li>public void setNewCordList()</li>
+<li>private int makeNewPixel(int pixel)</li>
+<li>public void makePixelGreen(int x, int y)</li>
+</ul>
+
+<H2>Fragments</H2>
+
+<H3>EcoFragment</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private boolean startFactionIsTerror;</li>
+	<li>private TextView roundView;</li>
+	<li>private TextView factionView;</li>
+	<li>private TextView ecoView;</li>
+	<li>private Eco eco;</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>public void setFaction(boolean myFaction)</li>
+	<li>private void updateRoundView()</li>
+	<li>private void createButtons(View view)</li>
+	<li></li>
+</ul>
+
+<H3>BombTimerFragment</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private TextView countDownText;</li>
+	<li>private Button start_countdown_button;</li>
+	<li>CountDownTimer countDownTimer;</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>private void createCountdownButton(View view)</li>
+	<li>public void updateTextView( final String message)</li>
+	<li>public void resetTimer()</li>
+</ul>
+
+<H3>ShadowFragment</H3>
+
+<H4>GlobalVariables</H4>
+
+<ul>
+	<li>private ImageView mapOverview;</li>
+	<li>private ImageView shadowMapOverview;</li>
+	<li>private Bitmap myShadowMapIdBackup;</li>
+	<li>private Bitmap myBitMapIdBackup;</li>
+	<li>private Bitmap bitmap;</li>
+	<li>private Bitmap shadowMap;</li>
+	<li>private TextView testTextView;</li>
+	<li>final Timer timer = new Timer();</li>
+	<li>private TimerTask task;</li>
+	<li>private Button resetButton;</li>
+	<li>private Shadow shadow;</li>
+	<li>private boolean timerOn= false;</li>
+	<li>private int mapId;</li>
+	<li>private int shadowMapId;mer()</li>
+</ul>
+
+<H4>Methods & Functions</H4>
+
+<ul>
+	<li>public void setMapOverview(int myMapId)</li>
+	<li>public void setShadowBitMap(int myShadowMapId)</li>
+	<li>public void updateMapOverview()</li>
+	<li>public void clearTextViewOverview()</li>
+	<li>public void resetShadow()</li>
+	<li>public void createOnTouchListener()</li>
+	<li>private void createResetButton(View view)</li>
+	<li>private void showResetButton()</li>
+	<li>private void createTimerTask()</li>
+</ul>
+
 <H1>Uitdagingen en keuzes</H1>
 
 <H3>Hoe verwerk ik de informatie en visualiseer ik dit op een bitmap?</H3>
