@@ -305,3 +305,76 @@
   <li>None.</li>
 </ul>
 
+#Day 17
+<h4>Goals:</h4>
+<ul>
+  <li>Werken aan verslag</li>
+  <li>Code opmaken</li>
+
+</ul>
+
+<h4>Done:</h4>
+<ul>  
+  <li>Werken aan verslag</li>
+  <li>Code opmaken</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 18
+<h4>Goals:</h4>
+<ul>
+  <li>Werken aan verslag</li>
+  <li>Code opmaken</li>
+  <li>Minor bug fixen</li>
+
+</ul>
+
+<h4>Done:</h4>
+<ul>  
+  <li>Werken aan verslag</li>
+  <li>Code opmaken</li>
+  <li>Minor bug fixen</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 19
+<h4>Goals:</h4>
+<ul>
+  <li>Werken aan verslag</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>  
+  <li>Werken aan verslag</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
+
+#Day 20
+<h4>Goals:</h4>
+<ul>
+  <li>Eind presentatie</li>
+  <li>Processbook updaten</li>
+</ul>
+
+<h4>Done:</h4>
+<ul>  
+  <li>Eind presentatie</li>
+  <li>Processbook updaten</li>
+</ul>
+
+<h4>Left:</h4>
+<ul>
+  <li>None.</li>
+</ul>
